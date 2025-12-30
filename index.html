@@ -3,76 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menú · La Table Noire</title>
+  <title>La Table Noire · Menú</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f7f7f7;
+      background: #fafafa;
       color: #111;
     }
 
-    .screen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    /* ===== RESTAURANT VIEW ===== */
 
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(20px);
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 32px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    header {
+      padding: 32px 24px 16px;
       text-align: center;
     }
 
-    h1 {
+    header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      margin-bottom: 24px;
+      font-size: 32px;
+      font-weight: 600;
     }
 
-    .info {
-      text-align: left;
-      margin-bottom: 32px;
-      line-height: 1.6;
-      font-size: 16px;
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #777;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .label {
+    .section {
+      padding: 24px;
+      border-top: 1px solid #eee;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .menu-item {
+      margin-bottom: 16px;
+    }
+
+    .menu-item span {
+      display: block;
+      font-size: 15px;
+    }
+
+    .menu-item small {
       color: #777;
       font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    }
+
+    .cta {
+      padding: 24px;
+      text-align: center;
     }
 
     button {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       font-size: 16px;
       border-radius: 8px;
       border: none;
@@ -85,16 +83,44 @@
       transform: scale(0.98);
     }
 
-    .menu-note {
+    .note {
       margin-top: 12px;
       font-size: 13px;
       color: #777;
     }
 
-    /* Reveal screen */
+    footer {
+      padding: 24px;
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+    }
 
-    .reveal p {
-      font-size: 18px;
+    /* ===== REVEAL VIEW ===== */
+
+    .reveal {
+      position: fixed;
+      inset: 0;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .reveal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
       margin-bottom: 24px;
     }
 
@@ -102,71 +128,91 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle at top, #eaeaea, #cfcfcf);
+      background: radial-gradient(circle at top, #f0f0f0, #cfcfcf);
       margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 13px;
-      text-align: center;
-      padding: 16px;
+      position: relative;
+    }
+
+    .hand {
+      position: absolute;
+      width: 2px;
+      height: 70px;
+      background: #111;
+      top: 30px;
+      left: 50%;
+      transform-origin: bottom;
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg) translateX(-50%); }
+      to   { transform: rotate(360deg) translateX(-50%); }
+    }
+
+    .reveal p {
+      font-size: 17px;
+      color: #ddd;
     }
   </style>
 </head>
 <body>
 
-  <!-- SCREEN 1: Fake restaurant -->
-  <div class="screen" id="screen1">
-    <div class="card">
-      <h1>Reserva confirmada</h1>
+  <!-- RESTAURANT -->
+  <header>
+    <h1>La Table Noire</h1>
+    <p>Cocina de autor</p>
+  </header>
 
-      <div class="info">
-        <div>
-          <span class="label">Restaurante</span><br>
-          La Table Noire
-        </div><br>
+  <section class="section">
+    <h2>Menú degustación</h2>
 
-        <div>
-          <span class="label">Fecha</span><br>
-          Viernes, 14 de febrero
-        </div><br>
-
-        <div>
-          <span class="label">Hora</span><br>
-          21:00
-        </div><br>
-
-        <div>
-          <span class="label">Personas</span><br>
-          2
-        </div>
-      </div>
-
-      <button onclick="reveal()">Ver menú</button>
-      <div class="menu-note">
-        Menú degustación disponible esa noche
-      </div>
+    <div class="menu-item">
+      <span>Entrantes de temporada</span>
+      <small>Producto local · Elaboración diaria</small>
     </div>
-  </div>
 
-  <!-- SCREEN 2: Reveal -->
-  <div class="screen hidden" id="screen2">
-    <div class="card reveal">
-      <p>No todo lo importante se sirve en un plato.</p>
+    <div class="menu-item">
+      <span>Pescado del día</span>
+      <small>Salsa suave y guarnición de estación</small>
+    </div>
+
+    <div class="menu-item">
+      <span>Carnes seleccionadas</span>
+      <small>Cocción lenta · Acompañamientos artesanos</small>
+    </div>
+
+    <div class="menu-item">
+      <span>Postre del chef</span>
+      <small>Chocolate · Cítricos · Texturas</small>
+    </div>
+  </section>
+
+  <section class="cta">
+    <button onclick="openMenu()">Ver menú degustación</button>
+    <div class="note">Disponible solo bajo reserva</div>
+  </section>
+
+  <footer>
+    Viernes · 21:00 · Mesa para dos
+  </footer>
+
+  <!-- REVEAL -->
+  <div class="reveal" id="reveal">
+    <div>
+      <h3>No todo lo importante se sirve en un plato.</h3>
 
       <div class="watch">
-        Un regalo pensado para acompañarte cada día
+        <div class="hand"></div>
       </div>
 
-      <p>Para que lleves contigo cada segundo que compartimos.</p>
+      <p>Pensado para ti. Sin más.</p>
     </div>
   </div>
 
   <script>
-    function reveal() {
-      document.getElementById('screen1').classList.add('hidden');
-      document.getElementById('screen2').classList.remove('hidden');
+    function openMenu() {
+      if (navigator.vibrate) navigator.vibrate(20);
+      document.getElementById('reveal').classList.add('active');
     }
   </script>
 
