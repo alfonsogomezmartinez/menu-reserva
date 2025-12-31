@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>El Lobito del Mar – Cocina Mediterránea</title>
+  <title>Azahar del Mar – Alta Cocina Mediterránea</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #f7f7f5;
@@ -20,7 +21,7 @@
       background-image: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1");
       background-size: cover;
       background-position: center;
-      height: 70vh;
+      height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,18 +29,27 @@
       padding: 20px;
     }
 
+    header .hero {
+      background: rgba(0,0,0,0.5);
+      padding: 28px 34px;
+      border-radius: 10px;
+      color: white;
+    }
+
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
-      color: white;
-      background: rgba(0,0,0,0.45);
-      padding: 20px 28px;
-      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    header .meta {
+      font-size: 0.95rem;
+      opacity: 0.9;
     }
 
     section {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 50px auto;
       padding: 0 20px;
     }
 
@@ -54,11 +64,26 @@
       color: #444;
     }
 
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 25px 0;
+      font-size: 0.95rem;
+    }
+
+    .details div {
+      background: #ffffff;
+      padding: 14px 18px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 12px;
-      margin: 30px 0;
+      margin: 35px 0;
     }
 
     .gallery img {
@@ -70,8 +95,8 @@
 
     .menu-btn {
       display: block;
-      margin: 50px auto;
-      padding: 16px 28px;
+      margin: 60px auto;
+      padding: 16px 32px;
       font-size: 1rem;
       background: #1f3d3a;
       color: white;
@@ -88,11 +113,11 @@
     .letter {
       display: none;
       max-width: 700px;
-      margin: 80px auto;
+      margin: 90px auto;
       background: white;
       padding: 40px 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
 
     .letter h2 {
@@ -114,22 +139,38 @@
 </head>
 <body>
 
-  <!-- PORTADA RESTAURANTE -->
+  <!-- PORTADA -->
   <header>
-    <h1>El Lobito del Mar</h1>
+    <div class="hero">
+      <h1>Azahar del Mar</h1>
+      <div class="meta">
+        ⭐⭐ Dos Estrellas Michelin · Granada
+      </div>
+    </div>
   </header>
 
-  <!-- TEXTO RESTAURANTE -->
+  <!-- CONTENIDO RESTAURANTE -->
   <section class="intro" id="restaurant">
-    <h2>Cocina mediterránea con alma</h2>
+    <h2>Alta cocina mediterránea contemporánea</h2>
+
     <p>
-      En El Lobito del Mar creemos en una cocina honesta, basada en el producto,
-      el respeto por el mar y el tiempo compartido alrededor de una mesa.
+      Azahar del Mar es un espacio gastronómico donde el producto,
+      la técnica y la emoción se encuentran en un entorno íntimo y elegante
+      en el corazón de Granada.
     </p>
+
     <p>
-      Nuestra carta cambia con las estaciones, seleccionando pescados frescos,
-      arroces tradicionales y una cuidada bodega para acompañar cada plato.
+      Nuestra propuesta se articula en torno a un menú degustación
+      que rinde homenaje al mar, a la estacionalidad y a la tradición
+      reinterpretada desde una mirada actual.
     </p>
+
+    <div class="details">
+      <div>📍 Granada</div>
+      <div>🍽️ Menú degustación</div>
+      <div>💶 250 € por persona</div>
+      <div>⭐ 2 Estrellas Michelin</div>
+    </div>
 
     <div class="gallery">
       <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" />
@@ -146,20 +187,19 @@
     <h2>No era un menú…</h2>
 
     <p>
-      Quería invitarte a comer, sí.  
-      Pero sobre todo quería regalarte algo que te recuerde cada día
-      lo especial que eres para mí.
+      Quería invitarte a algo especial, sí.
+      Pero también quería regalarte algo que te acompañe cada día
+      y que te recuerde lo importante que eres para mí.
     </p>
 
     <p>
-      No soy de grandes discursos ni de cosas empalagosas,
-      pero hay detalles que hablan solos,
-      y este es uno de ellos.
+      No somos de exagerar ni de grandes discursos,
+      pero hay gestos que dicen más que muchas palabras.
     </p>
 
     <p>
-      Algo elegante, sencillo, que combine contigo
-      y que te acompañe en tu día a día.
+      Algo elegante, sencillo, con estilo.
+      Como tú.
     </p>
 
     <p>
@@ -168,7 +208,7 @@
     </p>
 
     <div class="signature">
-      ❤️ Siempre tuyo
+      ❤️ Siempre contigo
     </div>
   </section>
 
