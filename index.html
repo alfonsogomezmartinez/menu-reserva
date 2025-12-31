@@ -2,217 +2,181 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Table Noire · Menú</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Lobito del Mar – Cocina Mediterránea</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Inter', sans-serif;
-      background: #fafafa;
-      color: #111;
+      background: #f7f7f5;
+      color: #2b2b2b;
+      line-height: 1.6;
     }
 
-    /* ===== RESTAURANT VIEW ===== */
-
     header {
-      padding: 32px 24px 16px;
+      background-image: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1");
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 20px;
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 600;
-    }
-
-    header p {
-      margin-top: 8px;
-      font-size: 14px;
-      color: #777;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section {
-      padding: 24px;
-      border-top: 1px solid #eee;
-    }
-
-    .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-
-    .menu-item {
-      margin-bottom: 16px;
-    }
-
-    .menu-item span {
-      display: block;
-      font-size: 15px;
-    }
-
-    .menu-item small {
-      color: #777;
-      font-size: 13px;
-    }
-
-    .cta {
-      padding: 24px;
-      text-align: center;
-    }
-
-    button {
-      width: 100%;
-      padding: 16px;
-      font-size: 16px;
+      font-size: 2.6rem;
+      color: white;
+      background: rgba(0,0,0,0.45);
+      padding: 20px 28px;
       border-radius: 8px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .intro p {
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .menu-btn {
+      display: block;
+      margin: 50px auto;
+      padding: 16px 28px;
+      font-size: 1rem;
+      background: #1f3d3a;
+      color: white;
       border: none;
-      background: #111;
-      color: #fff;
+      border-radius: 30px;
       cursor: pointer;
     }
 
-    button:active {
-      transform: scale(0.98);
+    .menu-btn:hover {
+      background: #162c2a;
     }
 
-    .note {
-      margin-top: 12px;
-      font-size: 13px;
-      color: #777;
+    /* CARTA */
+    .letter {
+      display: none;
+      max-width: 700px;
+      margin: 80px auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    footer {
-      padding: 24px;
-      font-size: 13px;
-      color: #999;
-      text-align: center;
-    }
-
-    /* ===== REVEAL VIEW ===== */
-
-    .reveal {
-      position: fixed;
-      inset: 0;
-      background: #111;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      text-align: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .reveal h3 {
+    .letter h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      font-size: 1.9rem;
     }
 
-    .watch {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top, #f0f0f0, #cfcfcf);
-      margin: 0 auto 24px;
-      position: relative;
+    .letter p {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
     }
 
-    .hand {
-      position: absolute;
-      width: 2px;
-      height: 70px;
-      background: #111;
-      top: 30px;
-      left: 50%;
-      transform-origin: bottom;
-      animation: spin 8s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg) translateX(-50%); }
-      to   { transform: rotate(360deg) translateX(-50%); }
-    }
-
-    .reveal p {
-      font-size: 17px;
-      color: #ddd;
+    .signature {
+      margin-top: 30px;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
 
-  <!-- RESTAURANT -->
+  <!-- PORTADA RESTAURANTE -->
   <header>
-    <h1>La Table Noire</h1>
-    <p>Cocina de autor</p>
+    <h1>El Lobito del Mar</h1>
   </header>
 
-  <section class="section">
-    <h2>Menú degustación</h2>
+  <!-- TEXTO RESTAURANTE -->
+  <section class="intro" id="restaurant">
+    <h2>Cocina mediterránea con alma</h2>
+    <p>
+      En El Lobito del Mar creemos en una cocina honesta, basada en el producto,
+      el respeto por el mar y el tiempo compartido alrededor de una mesa.
+    </p>
+    <p>
+      Nuestra carta cambia con las estaciones, seleccionando pescados frescos,
+      arroces tradicionales y una cuidada bodega para acompañar cada plato.
+    </p>
 
-    <div class="menu-item">
-      <span>Entrantes de temporada</span>
-      <small>Producto local · Elaboración diaria</small>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" />
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947" />
+      <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8" />
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" />
     </div>
 
-    <div class="menu-item">
-      <span>Pescado del día</span>
-      <small>Salsa suave y guarnición de estación</small>
-    </div>
-
-    <div class="menu-item">
-      <span>Carnes seleccionadas</span>
-      <small>Cocción lenta · Acompañamientos artesanos</small>
-    </div>
-
-    <div class="menu-item">
-      <span>Postre del chef</span>
-      <small>Chocolate · Cítricos · Texturas</small>
-    </div>
+    <button class="menu-btn" onclick="showLetter()">Ver menú</button>
   </section>
 
-  <section class="cta">
-    <button onclick="openMenu()">Ver menú degustación</button>
-    <div class="note">Disponible solo bajo reserva</div>
-  </section>
+  <!-- CARTA SORPRESA -->
+  <section class="letter" id="letter">
+    <h2>No era un menú…</h2>
 
-  <footer>
-    Viernes · 21:00 · Mesa para dos
-  </footer>
+    <p>
+      Quería invitarte a comer, sí.  
+      Pero sobre todo quería regalarte algo que te recuerde cada día
+      lo especial que eres para mí.
+    </p>
 
-  <!-- REVEAL -->
-  <div class="reveal" id="reveal">
-    <div>
-      <h3>No todo lo importante se sirve en un plato.</h3>
+    <p>
+      No soy de grandes discursos ni de cosas empalagosas,
+      pero hay detalles que hablan solos,
+      y este es uno de ellos.
+    </p>
 
-      <div class="watch">
-        <div class="hand"></div>
-      </div>
+    <p>
+      Algo elegante, sencillo, que combine contigo
+      y que te acompañe en tu día a día.
+    </p>
 
-      <p>Pensado para ti. Sin más.</p>
+    <p>
+      El restaurante puede esperar.<br>
+      El reloj no.
+    </p>
+
+    <div class="signature">
+      ❤️ Siempre tuyo
     </div>
-  </div>
+  </section>
 
   <script>
-    function openMenu() {
-      if (navigator.vibrate) navigator.vibrate(20);
-      document.getElementById('reveal').classList.add('active');
+    function showLetter() {
+      document.getElementById("restaurant").style.display = "none";
+      document.getElementById("letter").style.display = "block";
+      window.scrollTo(0, 0);
     }
   </script>
 
