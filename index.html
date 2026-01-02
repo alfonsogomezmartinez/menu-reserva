@@ -114,11 +114,24 @@
       display: none;
       max-width: 700px;
       margin: 90px auto;
-      background: white;
-      padding: 40px 30px;
+      padding: 40px 30px 280px;
       border-radius: 12px;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,1) 0%,
+          rgba(255,255,255,1) 65%,
+          rgba(255,255,255,0.9) 75%,
+          rgba(255,255,255,0.4) 85%,
+          rgba(255,255,255,0.0) 100%
+        ),
+        url("images/nosotros.jpg");
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
       box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
+
 
     .letter h2 {
       font-family: 'Playfair Display', serif;
@@ -190,11 +203,6 @@
     </div>
 
     <button class="menu-btn" onclick="showLetter()">Ver menú</button>
-    <img 
-      src="images/nosotros.jpg" 
-      alt="Nosotros"
-      class="us-photo"
-    />
   
   </section>
 
@@ -232,9 +240,6 @@
       Me gusta quién soy cuando estoy contigo
       y me ilusiona todo lo que viene por delante, a tu lado.
     </p>
-
-    <!-- Imagen vuestra -->
-    <img src="images/nosotros.jpg" alt="Nosotros" class="us-photo" />
 
   </section>
 
